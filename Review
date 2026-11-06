@@ -1,0 +1,36 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Copy Review Text</title>
+<style>
+*{box-sizing:border-box;font-family:Arial,sans-serif}
+body{padding:40px 20px;text-align:center;background:#f8f8f8}
+.btn{padding:16px 24px;font-size:18px;border:none;border-radius:12px;background:#222;color:#fff}
+</style>
+</head>
+<body>
+<h3>Copy review text</h3>
+<button class="btn" id="copyBtn">Tap to Copy ✨</button>
+<p id="msg"></p>
+
+<script>
+// ✅ 在这里改你的好评文案！
+const reviewText = "打包了nasi lemak，打开一看，belacan炸鸡腿真的很大只，搭配上又香又辣的sambal，真的是绝配了！食材也都很新鲜～下次还会再回购！
+
+const copyBtn = document.getElementById("copyBtn");
+const msg = document.getElementById("msg");
+
+copyBtn.onclick = async ()=>{
+  try{
+    await navigator.clipboard.writeText(reviewText);
+    msg.innerText = "Copied ✅";
+  }catch(e){
+    msg.innerText = "Copy failed, please copy manually";
+  }
+}
+</script>
+</body>
+</html>
